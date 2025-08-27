@@ -9,8 +9,9 @@ datasource db {
 
 model Link {
   id          Int      @id @default(autoincrement())
-  shortCode   String   @unique
-  originalUrl String   @db.Text
+  shortCode   String   @unique @db.VarChar(20)
+  originalUrl String   @db.VarChar(2048)
   clicks      Int      @default(0)
   createdAt   DateTime @default(now())
+
 }

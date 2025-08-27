@@ -1,8 +1,8 @@
 -- CreateTable
 CREATE TABLE `Link` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `shortCode` VARCHAR(191) NOT NULL,
-    `originalUrl` TEXT NOT NULL,
+    `shortCode` VARCHAR(20) NOT NULL,
+    `originalUrl` VARCHAR(2048) NOT NULL,
     `clicks` INTEGER NOT NULL DEFAULT 0,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 

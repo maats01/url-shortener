@@ -1,21 +1,30 @@
 import { prisma } from '../lib/prisma';
 import { nanoid } from 'nanoid';
 
+type LinkResult = {
+    shortCode: string,
+    created: boolean
+}
+
 class LinkService {
-    public async create(originalUrl: string): Promise<{link: object, created: boolean} | null> {
+    public async createOrGetLink(originalUrl: string): Promise<LinkResult | null> {
+        // verify if the url is valid first
         if (!URL.canParse(originalUrl)) {
             return null;
         }
         
         try {
-            const existingLink = prisma.link.findFirst({
+            // check if exists a link with that url first
+            const existingLink = await prisma.link.findFirst({
                 where: { originalUrl: originalUrl }
             });
 
+            // returns the existing link
             if (existingLink !== null) {
-                return { link: existingLink, created: false }
+                return { shortCode: existingLink.shortCode, created: false };
             }
 
+            // creates a new link
             let newLink = await prisma.link.create({
                 data: {
                     shortCode: nanoid(8),
@@ -23,7 +32,7 @@ class LinkService {
                 }
             });
 
-            return { link: newLink, created: true };
+            return { shortCode: newLink.shortCode, created: true };
 
         } catch (error) {
             console.log(error);

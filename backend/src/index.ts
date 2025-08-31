@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import linkController from './controllers/link.controller';
 import cors from 'cors';
+import { logger } from './utils/logger';
 
 dotenv.config();
 
@@ -18,5 +19,5 @@ app.get('/:shortCode', linkController.redirectToOriginal);
 app.post('/api/shorten', linkController.shortenUrl);
 
 app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`)
+    logger.info(`Server running listening on port ${PORT}`)
 });

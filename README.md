@@ -29,7 +29,15 @@ Envie uma requisição POST para `/api/shorten` com a URL original no corpo da r
   {
     "shortUrl": "http://localhost:3333/aB1cD2eF"
   }
- 
+
+### Redirecionar para a URL original
+
+Acesse a URL raiz da aplicação seguida pelo código curto gerado.
+
+- **Endpoint:** `GET /{shortCode}`
+- **Exemplo:** Acesse `http://localhost:3333/aB1cD2eF` no seu navegador.
+- **Resultado:** Você será redirecionado (HTTP 302) para a URL original correspondente. 
+
 ## Tecnologias utilizadas
 
 - Node.js

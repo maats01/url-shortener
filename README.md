@@ -1,1 +1,65 @@
 # url-shortener
+
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+
+Aplicação MVP de um encurtador de URL, com backend e frontend.
+
+## Funcionalidades
+
+- Encurtar uma URL (`POST /api/shorten`)
+- Redirecionar para a URL original (`GET /{shortCode}`)
+
+## Uso da API
+
+### Encurtar uma URL
+
+Envie uma requisição POST para `/api/shorten` com a URL original no corpo da requisição.
+
+- **Endpoint:** `POST /api/shorten`
+- **Corpo da Requisição (Body):**
+  ```json
+  {
+    "originalUrl": "[https://github.com/maats01](https://github.com/maats01)"
+  }
+- **Resposta de sucesso:**
+  ```json
+  {
+    "shortUrl": "http://localhost:3333/aB1cD2eF"
+  }
+ 
+## Tecnologias utilizadas
+
+- Node.js
+- TypeScript
+- Express.js
+- Prisma
+- MySQL
+
+## Instalação
+
+### 1. Clonar o repositório
+```bash
+git clone https://github.com/maats01/url-shortener.git
+```
+
+### 2. Instalar dependências
+```bash
+npm install
+```
+
+### 3. Configurar o ambiente
+Criar um banco de dados MySQL para a aplicação e ajustar o arquivo `.env`, se baseando no `.env example`.
+
+
+### 4. Executar as migrations do prisma
+```bash
+npx prisma migrate dev
+```
+
+### 5. Iniciar a aplicação
+```bash
+npm run dev
+```

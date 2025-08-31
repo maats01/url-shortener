@@ -5,7 +5,7 @@
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
 
-Aplicação MVP de um encurtador de URL, com backend e frontend.
+Aplicação MVP de um encurtador de URL, com backend construído em Node.js e TypeScript.
 
 ## Funcionalidades
 

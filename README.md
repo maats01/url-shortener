@@ -22,7 +22,7 @@ Envie uma requisição POST para `/api/shorten` com a URL original no corpo da r
 - **Corpo da Requisição (Body):**
   ```json
   {
-    "originalUrl": "[https://github.com/maats01](https://github.com/maats01)"
+    "originalUrl": "https://github.com/maats01"
   }
 - **Resposta de sucesso:**
   ```json

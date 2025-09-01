@@ -63,7 +63,7 @@ Copie o arquivo de exemplo `.env.example` para um novo arquivo chamado `.env`:
 ```bash
 cp .env.example .env
 ```
-Em seguida, edite o arquivo .env com as informações de conexão do seu banco de dados MySQL.
+Em seguida, edite o arquivo `.env` com as informações de conexão do seu banco de dados MySQL.
 
 ### 4. Executar as migrations do prisma
 ```bash

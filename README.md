@@ -59,7 +59,7 @@ npm install
 ```
 
 ### 3. Configurar o ambiente
-Copie o arquivo de exemplo .env.example para um novo arquivo chamado .env:
+Copie o arquivo de exemplo `.env.example` para um novo arquivo chamado `.env`:
 ```bash
 cp .env.example .env
 ```

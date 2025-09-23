@@ -54,6 +54,7 @@ git clone https://github.com/maats01/url-shortener.git
 ```
 
 ### 2. Instalar dependências
+Dentro do diretório `backend`, rodar:
 ```bash
 npm install
 ```
@@ -71,6 +72,7 @@ npx prisma migrate dev
 ```
 
 ### 5. Iniciar a aplicação
+Dentro do diretório `backend`, rodar:
 ```bash
 npm run dev
 ```

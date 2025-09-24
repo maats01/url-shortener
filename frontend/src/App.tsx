@@ -1,35 +1,91 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.tsx
+import React, { useState } from 'react';
+import './App.css';
+import logo from './assets/logo.png'; // Importe seu logo aqui. Certifique-se de que o caminho está correto!
+
+const apiUrl = 'http://localhost:3333/api/shorten';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [originalUrl, setOriginalUrl] = useState('');
+  const [shortUrl, setShortUrl] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setError('');
+    setShortUrl(''); // Limpa a URL encurtada anterior
+    setLoading(true);
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ originalUrl }),
+      });
+
+      if (!response.ok) {
+        // Tenta ler a mensagem de erro do backend se disponível
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erro ao encurtar a URL. Tente novamente.');
+      }
+
+      const data = await response.json();
+      setShortUrl(data.shortUrl);
+      setOriginalUrl(''); // Limpa o input após o sucesso
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-wrapper">
+      <header className="app-header">
+        {/* Se você tiver um arquivo .svg ou .png do logo, importe-o e use aqui */}
+        <img src={logo} alt="Encurtador de URL Logo" className="app-logo" />
+      </header>
+
+      <main className="main-content">
+        <div className="card">
+          <h2>Cole a URL para ser encurtada</h2>
+          <form onSubmit={handleSubmit} className="shortener-form">
+            <input
+              type="url"
+              value={originalUrl}
+              onChange={(e) => setOriginalUrl(e.target.value)}
+              placeholder="Cole o link aqui"
+              required
+              className="url-input"
+            />
+            <button type="submit" disabled={loading} className="shorten-button">
+              {loading ? 'Encurtando...' : 'Encurtar URL'}
+            </button>
+          </form>
+
+          {error && <p className="message error-message">{error}</p>}
+
+          {shortUrl && (
+            <div className="result-section">
+              <p className="message success-message">Sua URL encurtada:</p>
+              <a href={shortUrl} target="_blank" rel="noopener noreferrer" className="short-url-link">
+                {shortUrl}
+              </a>
+            </div>
+          )}
+
+          <p className="app-description">
+            Encurtador é uma ferramenta para encurtar URLs e gerar links curtos
+            <br />
+            Com o encurtador de URL é possível criar um link encurtado fácil de compartilhar
+          </p>
+        </div>
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;

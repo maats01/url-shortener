@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import logo from './assets/logo.png'; // Importe seu logo aqui. Certifique-se de que o caminho está correto!
 
-const apiUrl = 'http://localhost:3333/api/shorten';
+const apiUrl = 'https://url-shortener-api-tawny.vercel.app/api/shorten';
 
 function App() {
   const [originalUrl, setOriginalUrl] = useState('');

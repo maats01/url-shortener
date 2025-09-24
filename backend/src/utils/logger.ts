@@ -1,10 +1,19 @@
 import pino from 'pino';
 
-const transport = pino.transport({
-  target: 'pino-pretty',
-  options: { colorize: true }
+const transport = process.env.NODE_ENV !== 'production' 
+  ? {
+      target: 'pino-pretty',
+      options: {
+        colorize: true,
+        translateTime: 'SYS:dd-mm-yyyy HH:MM:ss',
+        ignore: 'pid,hostname',
+      },
+    }
+  : undefined;
+
+const logger = pino({
+  level: 'info',
+  transport,
 });
 
-export const logger = pino({
-  level: 'info',
-}, transport);
+export { logger };

@@ -1,9 +1,8 @@
-// src/App.tsx
 import React, { useState } from 'react';
 import './App.css';
-import logo from './assets/logo.png'; // Importe seu logo aqui. Certifique-se de que o caminho está correto!
+import logo from './assets/logo.png';
 
-const apiUrl = 'https://url-shortener-api-tawny.vercel.app/api/shorten';
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 function App() {
   const [originalUrl, setOriginalUrl] = useState('');
@@ -14,11 +13,11 @@ function App() {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setError('');
-    setShortUrl(''); // Limpa a URL encurtada anterior
+    setShortUrl('');
     setLoading(true);
 
     try {
-      const response = await fetch(apiUrl, {
+      const response = await fetch(API_BASE_URL + "/api/shorten", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -27,14 +26,13 @@ function App() {
       });
 
       if (!response.ok) {
-        // Tenta ler a mensagem de erro do backend se disponível
         const errorData = await response.json();
         throw new Error(errorData.message || 'Erro ao encurtar a URL. Tente novamente.');
       }
 
       const data = await response.json();
       setShortUrl(data.shortUrl);
-      setOriginalUrl(''); // Limpa o input após o sucesso
+      setOriginalUrl('');
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -45,7 +43,6 @@ function App() {
   return (
     <div className="app-wrapper">
       <header className="app-header">
-        {/* Se você tiver um arquivo .svg ou .png do logo, importe-o e use aqui */}
         <img src={logo} alt="Encurtador de URL Logo" className="app-logo" />
       </header>
 

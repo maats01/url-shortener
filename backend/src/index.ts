@@ -36,6 +36,7 @@ app.use(express.json());
 // routes
 app.get('/:shortCode', linkController.redirectToOriginal);
 app.post('/api/shorten', cors(corsOptionsDelegate), linkController.shortenUrl);
+app.options('/api/shorten', cors(corsOptionsDelegate));
 
 app.listen(PORT, () => {
     logger.info(`Server running listening on port ${PORT}`)

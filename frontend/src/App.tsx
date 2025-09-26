@@ -17,7 +17,7 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await fetch(API_BASE_URL + "/api/shorten", {
+      const response = await fetch(API_BASE_URL + "api/shorten", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

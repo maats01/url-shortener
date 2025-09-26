@@ -10,7 +10,7 @@ const app = express();
 
 const PORT = process.env.PORT;
 const allowedOrigins = [
-    'https://url-shortener-client-indol.vercel.app/',
+    'https://url-shortener-client-indol.vercel.app',
     'http://localhost:5173'
 ];
 

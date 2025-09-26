@@ -66,30 +66,30 @@ Acesse a URL raiz da aplicação seguida pelo código curto gerado.
 
 ### Backend
 
-### 1. Clonar o repositório
+#### 1. Clonar o repositório
 ```bash
 git clone https://github.com/maats01/url-shortener.git
 ```
 
-### 2. Instalar dependências
+#### 2. Instalar dependências
 Dentro do diretório `backend`, rodar:
 ```bash
 npm install
 ```
 
-### 3. Configurar o ambiente
+#### 3. Configurar o ambiente
 Copie o arquivo de exemplo `.env.example` para um novo arquivo chamado `.env`:
 ```bash
 cp .env.example .env
 ```
 Em seguida, edite o arquivo `.env` com as informações de conexão do seu banco de dados MySQL.
 
-### 4. Executar as migrations do prisma
+#### 4. Executar as migrations do prisma
 ```bash
 npx prisma migrate dev
 ```
 
-### 5. Iniciar a aplicação
+#### 5. Iniciar a aplicação
 Dentro do diretório `backend`, rodar:
 ```bash
 npm run dev
@@ -97,20 +97,20 @@ npm run dev
 
 ### Frontend
 
-### 1. Instalar dependências
+#### 1. Instalar dependências
 Dentro do diretório `frontend`, rodar:
 ```bash
 npm install
 ```
 
-### 2. Configurar o ambiente
+#### 2. Configurar o ambiente
 Copie o arquivo de exemplo `.env.example` para um novo arquivo chamado `.env`:
 ```bash
 cp .env.example .env
 ```
 Em seguida, edite o arquivo `.env` com a URL da API do backend.
 
-### 3. Iniciar a aplicação
+#### 3. Iniciar a aplicação
 ```bash
 npm run dev
 ```

@@ -4,6 +4,8 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
 Aplicação full-stack de um encurtador de URL. O backend é construído com Node.js e TypeScript, e o frontend com React e Vite.
 
@@ -82,7 +84,7 @@ Copie o arquivo de exemplo `.env.example` para um novo arquivo chamado `.env`:
 ```bash
 cp .env.example .env
 ```
-Em seguida, edite o arquivo `.env` com as informações de conexão do seu banco de dados MySQL.
+Em seguida, edite o arquivo `.env` com as informações de conexão do seu banco de dados PostgreSQL.
 
 #### 4. Executar as migrations do prisma
 ```bash

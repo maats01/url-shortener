@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import logo from './assets/logo.png';
 
@@ -9,6 +9,10 @@ function App() {
   const [shortUrl, setShortUrl] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  
+  useEffect(() => {
+    document.title = 'Encurtador de URL | Rápido e Fácil';
+  }, []);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();

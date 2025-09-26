@@ -9,11 +9,6 @@
 
 Aplicação full-stack de um encurtador de URL. O backend é construído com Node.js e TypeScript, e o frontend com React e Vite.
 
-## Funcionalidades
-
-- Encurtar uma URL (`POST /api/shorten`)
-- Redirecionar para a URL original (`GET /{shortCode}`)
-
 ## Tecnologias utilizadas
 
 ### Frontend
@@ -37,6 +32,11 @@ url-shortener/
 │   ├── ... (arquivos da interface)
 └── README.md
 ```
+
+## Funcionalidades
+
+- Encurtar uma URL (`POST /api/shorten`)
+- Redirecionar para a URL original (`GET /{shortCode}`)
 
 ## Uso da API
 

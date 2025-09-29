@@ -7,7 +7,7 @@
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-Aplicação full-stack de um encurtador de URL. O backend é construído com Node.js e TypeScript, e o frontend com React e Vite.
+Aplicação full-stack de um encurtador de URL. O backend é construído com Node.js e TypeScript, e o frontend com React e Vite. A aplicação pode ser acessada a partir de: https://url-shortener-client-indol.vercel.app/
 
 ## Tecnologias utilizadas
 
